@@ -6,6 +6,7 @@ export default function ColorInput({ id, defaultValue }) {
   return (
     <>
       <input
+        className="color-input"
         type="text"
         id={id}
         name={id}

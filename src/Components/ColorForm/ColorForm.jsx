@@ -1,4 +1,4 @@
-import ColorInput from "../ColorInput/ColorInput.jsx";
+import ColorInput from "../ColorInput/ColorInput";
 import "./ColorForm.css";
 
 export default function ColorForm({
@@ -15,10 +15,11 @@ export default function ColorForm({
 
   return (
     <form className="color-form" onSubmit={handleSubmit}>
-      <label htmlFor="role">
+      <label className="color-lable" htmlFor="role">
         Role
         <br />
         <input
+          className="color-input"
           type="text"
           id="role"
           name="role"
@@ -26,13 +27,13 @@ export default function ColorForm({
         />
       </label>
       <br />
-      <label htmlFor="hex">
+      <label className="color-lable" htmlFor="hex">
         Hex
         <br />
         <ColorInput id="hex" defaultValue={initialData.hex} />
       </label>
       <br />
-      <label htmlFor="contrastText">
+      <label className="color-lable" htmlFor="contrastText">
         Contrast Text
         <br />
         <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
