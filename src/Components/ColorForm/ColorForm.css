@@ -1,0 +1,43 @@
+body {
+  font-family: cursive;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 3px solid rgb(174, 34, 255);
+  border-right: 3px solid rgb(250, 42, 42);
+  border-left: 3px solid rgb(41, 228, 50);
+  border-bottom: 3px solid rgb(31, 173, 255);
+}
+
+h1 {
+  text-align: center;
+}
+.color-form {
+  background-color: rgba(110, 110, 110, 0.089);
+  display: grid;
+  justify-content: center;
+}
+
+button {
+  background-image: linear-gradient(
+    rgb(187, 154, 154),
+    rgb(189, 189, 189),
+    rgb(188, 238, 154)
+  );
+  width: 40%;
+  justify-self: center;
+}
+button:hover {
+  background-image: linear-gradient(
+    rgba(241, 93, 118, 0.37),
+    rgba(111, 77, 175, 0.384),
+    rgba(115, 202, 115, 0.61)
+  );
+}
+.color-lable {
+  text-align: center;
+}
+
+.color-input {
+  background-color: rgb(219, 208, 183);
+  color: rgb(90, 83, 83);
+}
