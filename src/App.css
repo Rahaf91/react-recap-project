@@ -1,4 +1,13 @@
 body {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  padding: 10px;
+  font-family: cursive;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 3px solid rgb(174, 34, 255);
+  border-right: 3px solid rgb(250, 42, 42);
+  border-left: 3px solid rgb(41, 228, 50);
+  border-bottom: 3px solid rgb(31, 173, 255);
+}
+
+h1 {
+  text-align: center;
 }
