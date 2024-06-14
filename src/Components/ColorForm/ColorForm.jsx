@@ -1,7 +1,7 @@
 import ColorInput from "../ColorInput/ColorInput";
 import "./ColorForm.css";
-
 export default function ColorForm({
+  text,
   handleAddColor,
   initialData = { role: "some color", hex: "#123456", contrastText: "#ffffff" },
 }) {
@@ -39,7 +39,8 @@ export default function ColorForm({
         <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
       </label>
       <br />
-      <button type="submit">ADD COLOR</button>
+
+      <button type="submit">{text}</button>
     </form>
   );
 }
