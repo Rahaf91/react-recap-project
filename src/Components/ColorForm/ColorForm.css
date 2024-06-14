@@ -5,19 +5,19 @@
 }
 
 button {
-  background-image: linear-gradient(
-    rgb(187, 154, 154),
-    rgb(189, 189, 189),
-    rgb(188, 238, 154)
-  );
+  background-color: rgb(190, 190, 190);
+  color: rgb(71, 43, 1);
   justify-self: center;
+  margin: 10px;
+  border-radius: 10px;
 }
 button:hover {
   background-image: linear-gradient(
     rgba(241, 93, 118, 0.37),
-    rgba(111, 77, 175, 0.384),
+    rgba(163, 137, 212, 0.384),
     rgba(115, 202, 115, 0.61)
   );
+  color: aliceblue;
 }
 .color-lable {
   text-align: center;
