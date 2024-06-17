@@ -16,7 +16,6 @@ export default function Color({ color, handleDeleteColor, handleEditColor }) {
       }}
     >
       <div>
-        {" "}
         <h3 className="color-card-headline">{color.hex}</h3>
         <CopyToClipboard text={color.hex} />
       </div>

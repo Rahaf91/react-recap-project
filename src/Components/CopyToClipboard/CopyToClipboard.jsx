@@ -9,7 +9,7 @@ export default function CopyToClipboard({ text }) {
       await navigator.clipboard.writeText(text);
       setIsCopied(true);
     } catch (error) {
-      console.error(error.message);
+      alert("Failed to copy to clipboard. Please try again.");
     }
   }
 
