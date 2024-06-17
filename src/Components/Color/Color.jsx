@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Color.css";
 import ColorForm from "../ColorForm/ColorForm";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 
 export default function Color({ color, handleDeleteColor, handleEditColor }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -14,7 +15,11 @@ export default function Color({ color, handleDeleteColor, handleEditColor }) {
         color: color.contrastText,
       }}
     >
-      <h3 className="color-card-headline">{color.hex}</h3>
+      <div>
+        <h3 className="color-card-headline">{color.hex}</h3>
+        <CopyToClipboard text={color.hex} />
+      </div>
+
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
 
