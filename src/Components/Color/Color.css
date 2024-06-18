@@ -11,7 +11,27 @@
 }
 .color-card-highlight {
   display: inline;
-  padding: 2px 6px;
-  background: black;
+  padding: 2px 2px;
   color: white;
+}
+
+.contrast_check {
+  background-color: rgb(134, 134, 133);
+  color: rgb(9, 14, 13);
+  width: 250px;
+}
+.contrast_check_yup {
+  background-color: #387525;
+  color: white;
+  width: 250px;
+}
+.contrast_check_kinda {
+  background-color: #eca92d;
+  color: white;
+  width: 250px;
+}
+.contrast_check_nope {
+  background-color: #af3535;
+  color: white;
+  width: 250px;
 }
