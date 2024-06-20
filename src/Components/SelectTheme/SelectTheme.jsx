@@ -138,7 +138,7 @@ export default function SelectTheme({
             }
           />
           <button type="button" onClick={handleEditThemeName}>
-            Edit
+            Update
           </button>
           <button type="button" onClick={handleCancelEdit}>
             Cancel
