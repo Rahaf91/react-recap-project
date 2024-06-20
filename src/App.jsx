@@ -52,6 +52,7 @@ function App() {
     );
 
     setThemes(updatedThemes);
+    setSelectedTheme(initialThemes[0]);
   }
 
   function handleAddColor(newColor) {
