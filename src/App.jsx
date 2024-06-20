@@ -32,6 +32,10 @@ function App() {
     };
     setThemes([...themes, newTheme]);
     setSelectedTheme(newTheme);
+    setColorThemes({
+      ...colorThemes,
+      [newTheme.id]: [],
+    });
   }
   //rename the existing theme in themes array
   function handleEditThemeName(themeId, newName) {
