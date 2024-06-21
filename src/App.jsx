@@ -14,6 +14,7 @@ function App() {
       return themes;
     }, {}),
   });
+
   const [themes, setThemes] = useState(initialThemes);
   //Select a Theme
   function handleThemeChange(event) {
