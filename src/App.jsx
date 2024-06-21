@@ -1,4 +1,4 @@
-import { initialColors, initialThemes } from "./lib/colors";
+import { initialThemes } from "./lib/colors";
 import "./App.css";
 import Theme from "./Components/Theme/Theme";
 import { uid } from "uid";
@@ -10,7 +10,7 @@ function App() {
   const [selectedTheme, setSelectedTheme] = useState(initialThemes[0]);
   const [colorThemes, setColorThemes] = useLocalStorageState("colorThemes", {
     defaultValue: initialThemes.reduce((themes, theme) => {
-      themes[theme.id] = initialColors;
+      themes[theme.id] = theme.colors;
       return themes;
     }, {}),
   });
