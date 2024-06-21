@@ -167,7 +167,7 @@ export default function SelectTheme({
             Add
           </button>
           <button
-            className="themeButto"
+            className="themeButton"
             type="button"
             onClick={() =>
               handleEditTheme(selectedTheme.id, selectedTheme.name)
@@ -177,7 +177,7 @@ export default function SelectTheme({
             Edit
           </button>
           <button
-            className="themeButto"
+            className="themeButton"
             type="button"
             onClick={handleDeleteTheme}
             disabled={isDefaultTheme}
