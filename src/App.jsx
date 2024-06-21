@@ -9,10 +9,7 @@ import SelectTheme from "./Components/SelectTheme/SelectTheme";
 function App() {
   const [selectedTheme, setSelectedTheme] = useState(initialThemes[0]);
   const [colorThemes, setColorThemes] = useLocalStorageState("colorThemes", {
-    defaultValue: initialThemes.reduce((themes, theme) => {
-      themes[theme.id] = theme.colors;
-      return themes;
-    }, {}),
+    defaultValue: initialThemes,
   });
 
   const [themes, setThemes] = useState(initialThemes);

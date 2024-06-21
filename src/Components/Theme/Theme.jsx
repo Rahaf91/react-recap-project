@@ -9,7 +9,7 @@ export default function Theme({
 }) {
   return (
     <div>
-      <ColorForm text={"Add Color"} handleAddColor={handleAddColor} />
+      <ColorForm text="Add Color" handleAddColor={handleAddColor} />
       {!colors || colors.length === 0 ? (
         <p className="message">Let it shine again! Please add new colors!</p>
       ) : (
