@@ -35,3 +35,11 @@
   color: white;
   width: 250px;
 }
+
+.color-card button {
+  background-color: #718685;
+  margin: 10px;
+}
+.color-card button:hover {
+  background-color: #a6d4d2;
+}

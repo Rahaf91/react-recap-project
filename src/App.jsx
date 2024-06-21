@@ -1,48 +1,105 @@
-import { initialColors } from "./lib/colors";
-import Color from "./Components/Color/Color";
+import { initialThemes } from "./lib/colors";
 import "./App.css";
-import ColorForm from "./Components/ColorForm/ColorForm";
+import Theme from "./Components/Theme/Theme";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
+import SelectTheme from "./Components/SelectTheme/SelectTheme";
+
 function App() {
-  const [colors, setColors] = useLocalStorageState("colors", {
-    defaultValue: initialColors,
+  const [selectedTheme, setSelectedTheme] = useState(initialThemes[0]);
+  const [colorThemes, setColorThemes] = useLocalStorageState("colorThemes", {
+    defaultValue: initialThemes,
   });
 
+  const [themes, setThemes] = useState(initialThemes);
+  //Select a Theme
+  function handleThemeChange(event) {
+    const selectedTheme = themes.find(
+      (theme) => theme.id === event.target.value
+    );
+    setSelectedTheme(selectedTheme);
+  }
+
+  //Add new Theme to themes array
+
+  function handleAddTheme(newThemeName) {
+    const newTheme = {
+      id: uid(),
+      name: newThemeName,
+    };
+    setThemes([...themes, newTheme]);
+    setSelectedTheme(newTheme);
+    setColorThemes({
+      ...colorThemes,
+      [newTheme.id]: [],
+    });
+  }
+  //rename the existing theme in themes array
+  function handleEditThemeName(themeId, newName) {
+    const updatedThemes = themes.map((theme) =>
+      theme.id === themeId ? { ...theme, name: newName } : theme
+    );
+    setThemes(updatedThemes);
+    setSelectedTheme(updatedThemes.find((theme) => theme.id === themeId));
+  }
+
+  function handleDeleteTheme() {
+    const updatedThemes = themes.filter(
+      (theme) => theme.id !== selectedTheme.id
+    );
+
+    setThemes(updatedThemes);
+    setSelectedTheme(initialThemes[0]);
+  }
+
   function handleAddColor(newColor) {
-    setColors([{ id: uid(), ...newColor }, ...colors]);
+    const currentColors = colorThemes[selectedTheme.id];
+    setColorThemes({
+      ...colorThemes,
+      [selectedTheme.id]: [{ id: uid(), ...newColor }, ...currentColors],
+    });
   }
 
   function handleDeleteColor(id) {
-    const colorsToKeep = colors.filter((color) => color.id !== id);
-    setColors(colorsToKeep);
+    const currentColors = colorThemes[selectedTheme.id];
+    const colorsToKeep = currentColors.filter((color) => color.id !== id);
+    setColorThemes({
+      ...colorThemes,
+      [selectedTheme.id]: colorsToKeep,
+    });
   }
 
   function handleEditColor(id, newColor) {
-    const newColors = colors.map((color) =>
+    const currentColors = colorThemes[selectedTheme.id];
+    const newColors = currentColors.map((color) =>
       color.id === id ? { ...color, ...newColor } : color
     );
-    setColors(newColors);
+    setColorThemes({
+      ...colorThemes,
+      [selectedTheme.id]: newColors,
+    });
   }
 
   return (
-    <div className={colors.length === 0 ? "dark-body" : ""}>
+    <>
       <h1>Theme Creator</h1>
-      <ColorForm text={"Add Color"} handleAddColor={handleAddColor} />
-      <br />
-      {colors.length === 0 ? ( //display a message encouraging users to add new colors.
-        <p className="message">Let it shine again! Please add new colors!</p>
-      ) : (
-        colors.map((color) => (
-          <Color
-            key={color.id}
-            color={color}
-            handleDeleteColor={handleDeleteColor}
-            handleEditColor={handleEditColor}
-          />
-        ))
-      )}
-    </div>
+      <SelectTheme
+        themes={themes}
+        selectedTheme={selectedTheme}
+        onThemeChange={handleThemeChange}
+        onAddTheme={handleAddTheme}
+        onEditTheme={handleEditThemeName}
+        onDeleteTheme={handleDeleteTheme}
+      />
+      <Theme
+        colors={colorThemes[selectedTheme.id]}
+        handleAddColor={handleAddColor}
+        handleDeleteColor={handleDeleteColor}
+        handleEditColor={handleEditColor}
+      />
+    </>
   );
 }
+
 export default App;
